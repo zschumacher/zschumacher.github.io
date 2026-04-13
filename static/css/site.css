@@ -1,0 +1,237 @@
+:root {
+    --bg: #111317;
+    --bg-glow: rgba(33, 140, 117, 0.14);
+    --surface: #1b1f27;
+    --surface-top: #2b313c;
+    --border: rgba(255, 255, 255, 0.08);
+    --text: #e7edf5;
+    --muted: #98a4b5;
+    --keyword: #f3ad67;
+    --string: #7fd0a7;
+    --caret: #64d98d;
+    --shadow: 0 28px 90px rgba(0, 0, 0, 0.42);
+    --mono: "SFMono-Regular", "Menlo", "Monaco", "Consolas", monospace;
+    --sans: "Avenir Next", "Segoe UI", sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    color: var(--text);
+    font-family: var(--sans);
+    background:
+        radial-gradient(circle at top, var(--bg-glow), transparent 30%),
+        linear-gradient(180deg, #151821 0%, var(--bg) 100%);
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 100% 36px, 36px 100%;
+    opacity: 0.18;
+}
+
+a {
+    color: inherit;
+}
+
+.page-shell {
+    width: min(980px, calc(100vw - 1.5rem));
+    margin: 0 auto;
+    padding: 4rem 0 3rem;
+}
+
+.intro {
+    margin-bottom: 1rem;
+}
+
+.intro-label {
+    margin: 0;
+    font-size: 0.88rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.terminal-card {
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    background: var(--surface);
+    box-shadow: var(--shadow);
+}
+
+.terminal-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.95rem 1.1rem;
+    background: linear-gradient(180deg, #343b48 0%, var(--surface-top) 100%);
+}
+
+.dot {
+    width: 0.78rem;
+    height: 0.78rem;
+    border-radius: 999px;
+    display: inline-block;
+}
+
+.dot-red {
+    background: #ff6159;
+}
+
+.dot-yellow {
+    background: #ffbd2f;
+}
+
+.dot-green {
+    background: #28c840;
+}
+
+.terminal-title {
+    margin: 0 0 0 0.4rem;
+    color: #c8d1de;
+    font-size: 0.92rem;
+}
+
+.terminal-screen {
+    position: relative;
+    padding: 1.35rem 1.35rem 1.5rem;
+    font-family: var(--mono);
+    font-size: 0.98rem;
+    line-height: 1.9;
+    min-height: 34rem;
+    max-height: 70vh;
+    overflow: auto;
+    outline: none;
+    cursor: text;
+}
+
+.terminal-card:focus-within {
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+.terminal-screen p {
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+.terminal-screen a {
+    color: #8ec5ff;
+    text-decoration: none;
+}
+
+.terminal-entry {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    font: inherit;
+    cursor: pointer;
+}
+
+.terminal-entry-dir {
+    color: #8ec5ff;
+}
+
+.terminal-entry-file,
+.terminal-entry-symlink {
+    color: var(--string);
+}
+
+.terminal-indent {
+    padding-left: 1.75rem;
+}
+
+.caret {
+    color: var(--caret);
+}
+
+.keyword {
+    color: var(--keyword);
+}
+
+.string {
+    color: var(--string);
+}
+
+.hint {
+    color: var(--muted);
+    font-style: italic;
+}
+
+.error {
+    color: #ff8f8f;
+}
+
+.prompt-line {
+    position: relative;
+    white-space: pre-wrap;
+}
+
+.prompt-input {
+    white-space: pre-wrap;
+}
+
+.terminal-input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    opacity: 0.01;
+    border: 0;
+    resize: none;
+    overflow: hidden;
+    background: transparent;
+    color: transparent;
+}
+
+.cursor {
+    display: inline-block;
+    width: 0;
+    height: 1.05em;
+    vertical-align: -0.15em;
+    border-left: 2px solid #f4f7fb;
+    animation: blink 1s steps(1) infinite;
+    margin-left: 0.08rem;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+@media (max-width: 720px) {
+    .page-shell {
+        width: min(100vw - 1rem, 980px);
+        padding-top: 1rem;
+    }
+
+    .terminal-screen {
+        font-size: 0.88rem;
+        line-height: 1.75;
+        padding: 1rem;
+        min-height: 30rem;
+    }
+
+    .terminal-indent {
+        padding-left: 1rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cursor {
+        animation: none;
+    }
+}

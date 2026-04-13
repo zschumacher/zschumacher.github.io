@@ -1,10 +1,7 @@
-# personal_site
-My personal website written in Python, Flask and Frozen-Flask.  Feel free to fork for personal use.
+# zschumacher.github.io
 
-# quickstart
-Change constants.py to whatever you need.
+Static personal site.  Feel free to take for personal use.
 
-```bash
-make install
-make freeze
-```
+## Local development
+
+Open `index.html` directly
