@@ -142,7 +142,7 @@
                 type: "dir",
                 children: {
                     email: { type: "link", label: "email", href: "mailto:zschu15@gmail.com" },
-                    linkedin: { type: "link", label: "linkedin", href: "https://www.linkedin.com/in/zschumacher/" },
+                    linkedin: { type: "link", label: "linkedin", href: "https://www.linkedin.com/in/zachschumacher/" },
                     github: { type: "link", label: "github", href: "https://github.com/zschumacher" },
                 },
             },
